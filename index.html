@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!--Estaria muy bien si el titulo se mueve-->
     <title>Reproductor Música</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,34 +14,34 @@
     contendra menu de inicio y algunos botones. Tambien un buscador-->
     <header class="web header">
         <div class="row">
-            <div class="col-3">
+            <div class="col-phone-12 col-desktop-3">
                 <a href="#">
                     <div class="brand">Reproductor de Musica Web</div>
                 </a>
             </div>
-            <div class="col-6">
+            <div class="col-phone-12 col-desktop-6">
                 <div class="topMenu">
                     <a href="#">
-                        <div class="col-2">Musica</div>
+                        <div class="col-phone-4 col-desktop-2">Musica</div>
                     </a>
                     <a href="#">
-                        <div class="col-2">Generos</div>
+                        <div class="col-phone-4 col-desktop-2">Generos</div>
                     </a>
                     <a href="#">
-                        <div class="col-2">Radio</div>
+                        <div class="col-phone-4 col-desktop-2">Radio</div>
                     </a>
                     <a href="#">
-                        <div class="col-2">Cuenta</div>
+                        <div class="col-phone-4 col-desktop-2">Cuenta</div>
                     </a>
                     <a href="#">
-                        <div class="col-2">Historial</div>
+                        <div class="col-phone-4 col-desktop-2">Historial</div>
                     </a>
                     <a href="#">
-                        <div class="col-2">About</div>
+                        <div class="col-phone-4 col-desktop-2">About</div>
                     </a>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-phone-12 col-desktop-3">
                 <div class="search">
                     <input type="search" id="search">
                     <button type="search">Buscar</button>
@@ -52,7 +53,7 @@
     <!--En esta fila esta el cuerpo de la pagina-->
     <div class="row">
         <!--menu lateral-->
-        <div class="col-2">
+        <div class="col-phone-12 col-desktop-2">
             <!--Esta columna se divide en dos filas: informacion de cuenta y playlist -->
             <div class="row">
                 <hr> Perfil
@@ -69,12 +70,12 @@
                 <br> Guns N' Roses - Sweet Child O' Mine
                 <br> Alt-J - Breezeblocks
                 <br>
-                <button type="add">Añadir canción</button>
+                <button id="addSongButton">Añadir canción</button>
             </div>
         </div>
         <div class="formulario">
             <!--cuerpo de lyrics-->
-            <div class="col-5">
+            <div class="col-phone-12 col-desktop-5">
                 <div class="lyrics-body">
                     <br>
                     <b>"New Born"</b>
@@ -129,7 +130,7 @@
                 </div>
             </div>
             <!--artist info-->
-            <div class="col-5">
+            <div class="col-phone-12 col-desktop-5">
                 <br>
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/aa/Muse_newborn.jpg" alt="Caratula de Muse">
                 <br> Muse es una banda británica de rock formada en 1994 en Teignmouth, Inglaterra. Sus integrantes desde su formación en la década de los años 90 son: Matt Bellamy (compositor, voz, guitarra, teclados); Dominic Howard (batería, percusión); y Christopher Wolstenholme (bajo eléctrico, teclados, coros).1 2 Tras el lanzamiento Black Holes and Revelations, Morgan Nicholls comenzó a colaborar con la banda durante las presentaciones en vivo, haciéndose cargo de teclados, samples, de algunos coros, rara vez del bajo y últimamente de la segunda guitarra.3 4 La banda es conocida por sus extravagantes espectáculos en vivo, por fusionar géneros musicales como el rock alternativo, rock espacial, rock progresivo, rock sinfónico y electrónica,5 además por los atípicos intereses de Bellamy en la conspiración global, la revolución, la astrofísica, vida extraterrestre, pensamientos humanos y la idea de un fin del mundo simbólico; temas que se ven reflejados en sus letras.
@@ -139,10 +140,7 @@
     </div>
     <div class="web footer">
         <!--Menu de reproduccion-->
-        <audio controls>
-            <source src="horse.ogg" type="audio/ogg">
-            <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-        </audio>
+        <audio controls> </audio>
     </div>
 </body>
 

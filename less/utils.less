@@ -29,3 +29,9 @@
         @rules();
     }
 }
+
+.if-is-desktop(@rules){
+    @media screen and (min-width: (@mobile-width + 1)){
+        @rules();
+    }
+}
