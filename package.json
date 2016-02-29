@@ -1,0 +1,25 @@
+{
+  "name": "reproductorbabelcamp",
+  "version": "1.0.0",
+  "description": "Reproductor de practica para conocimientos html5 y js",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jorobomgit@github.com/JorobomGit/reproductorMusicaJose.git"
+  },
+  "author": "Jose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JorobomGit/reproductorMusicaJose/issues"
+  },
+  "homepage": "https://github.com/JorobomGit/reproductorMusicaJose#readme"
+}
