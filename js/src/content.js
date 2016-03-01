@@ -1,9 +1,9 @@
 /*Funcion que actualiza el contenido al pinchar sobre una cancion*/
 
-function updateContent () {
-	var self = this;
+function updateContent() {
+    var self = this;
     var id = $(self).data("songid"); //atributo songid
-	  $.ajax({
+    $.ajax({
         method: 'GET', //No hace falta ponerlo, por defecto es GET
         url: "/api/canciones/" + id,
         //Por defecto el tipo es JSON
@@ -18,8 +18,8 @@ function updateContent () {
 
             var picture = data.authorPicture;
 
-            if(picture != undefined && picture != "")
-            	html += "<img src=" + picture + " alt=Caratula no cargada>";
+            if (picture != undefined && picture != "")
+                html += "<img src=" + picture + " alt=Caratula no cargada>";
             html += "<br>";
             html += data.authorInfo;
 
@@ -34,34 +34,29 @@ function updateContent () {
 
 /*Funcion que reproduce una cancion al clickar en el boton*/
 
-function playSong () {
-	var self = this;
+function playSong() {
+    var self = this;
     var id = $(self).data("songid"); //atributo songid
-	  $.ajax({
+    $.ajax({
         method: 'GET', //No hace falta ponerlo, por defecto es GET
         url: "/api/canciones/" + id,
         //Por defecto el tipo es JSON
         success: function(data) {
             console.log("Canciones actualizadas", data);
             var html = "";
-            html += "<br>";
-            html += data.lyrics;
-            $('.lyrics-body').html(html); //innerHTML = html
-            html = "";
-            html += "<br>";
+            html += '<audio controls autoplay>';
+            html += '<source src=' + data.songUrl +' type="audio/ogg">';
+            html += '<source src=' + data.songUrl + ' type="audio/mpeg">';
+            html += 'Your browser does not support the audio element.';
+            html += '</audio>';
 
-            var picture = data.authorPicture;
+            $('.web.footer').html(html); //innerHTML = html
 
-            if(picture != undefined && picture != "")
-            	html += "<img src=" + picture + " alt=Caratula no cargada>";
-            html += "<br>";
-            html += data.authorInfo;
-
-            $('.author-info').html(html); //innerHTML = html
+            $('').html(html); //innerHTML = html
 
         },
         error: function() {
-            alert("Se ha producido un error de GET SONG CLICK");
+            alert("Se ha producido un error de PLAY SONG");
         }
     });
 }

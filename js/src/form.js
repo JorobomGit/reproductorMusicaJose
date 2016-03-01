@@ -11,9 +11,9 @@ $(document).ready(function() {
     $(".playlist").on("click", ".songClick", updateContent);
     $(".playlist").on("click", ".playSong", playSong);
 
-    $(".lyrics-body").on("click", ".submitSong", sendSong);
+    $(".lyrics-body").submit(".submitSong", sendSong);
 
-
+    var playlistGlobal = null;
 });
 
 /*Funcion relativa a la edicion del formulario*/
@@ -22,15 +22,15 @@ function editForm() {
     var html = "";
     //Reemplazamos el codigo html de lyris e info author por nuestro formulario
     //TODO falta realizar la validacion de la URL y poner el lyrics como opcional
-    html += "<form novalidate>";
+    html += "<form>";
     html += "<br> <div>";
-    html += '<input type="text" name="name" id="name" placeholder="Nombre de la canción" required class="auto-focus">';
+    html += '<input type="text" name="name" id="name" placeholder="Nombre de la canción" class="auto-focus" required>';
     html += '</div> <br>';
     html += "<div>";
-    html += '<input type="text" name="author" id="author" placeholder="Autor">';
+    html += '<input type="text" name="author" id="author" placeholder="Autor" required>';
     html += '</div> <br>';
     html += "<div>";
-    html += '<input type="text" name="songUrl" id="songUrl" placeholder="URL de la canción">';
+    html += '<input type="text" name="songUrl" id="songUrl" placeholder="URL de la canción" required>';
     html += '</div> <br>';
     html += "<div>";
     html += '<input type="text" name="lyrics" id="lyrics" placeholder="Letra (opcional)">';
@@ -41,9 +41,7 @@ function editForm() {
     html += "<div>";
     html += '<input type="text" name="authorPicture" id="authorPicture" placeholder="Imagen del autor (opcional)">';
     html += '</div> <br>';
-    html += "<div>";
     html += '<button type="submit" class="submitSong">Enviar canción</button>';
-    html += '</div> <br>';
     html += "</form>";
 
 
@@ -121,6 +119,7 @@ function reloadPlaylist() {
                 html += '<button class="deleteSong" data-songid="' + id + '">X</button>';
                 html += "<br>";
                 html += "</div>";
+                playlistGlobal = data;
             }
             $('.playlist').html(html); //innerHTML = html
 
@@ -172,13 +171,13 @@ function editSong() {
 
             html += "<form novalidate>";
             html += "<br> <div>";
-            html += '<input value="' + name + '" type="text" name="name" id="name" placeholder="Nombre de la canción" required class="auto-focus">';
+            html += '<input value="' + name + '" type="text" name="name" id="name" placeholder="Nombre de la canción" required class="auto-focus" required>';
             html += '</div> <br>';
             html += "<div>";
-            html += '<input value="' + author + '" type="text" name="author" id="author" placeholder="Autor">';
+            html += '<input value="' + author + '" type="text" name="author" id="author" placeholder="Autor" required>';
             html += '</div> <br>';
             html += "<div>";
-            html += '<input value="' + songUrl + '" type="text" name="songUrl" id="songUrl" placeholder="URL de la canción">';
+            html += '<input value="' + songUrl + '" type="text" name="songUrl" id="songUrl" placeholder="URL de la canción" required>';
             html += '</div> <br>';
             html += "<div>";
             html += '<input value="' + lyrics + '" type="text" name="lyrics" id="lyrics" placeholder="Letra (opcional)">';
