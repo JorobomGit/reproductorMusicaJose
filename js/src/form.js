@@ -8,6 +8,8 @@ $(document).ready(function() {
     $(".addSongButton").on("click", editForm);
     $(".playlist").on("click", ".deleteSong", deleteSong);
     $(".playlist").on("click", ".editSong", editSong);
+    $(".playlist").on("click", ".songClick", updateContent);
+    $(".playlist").on("click", ".playSong", playSong);
 
     $(".lyrics-body").on("click", ".submitSong", sendSong);
 
@@ -49,6 +51,7 @@ function editForm() {
     $('.lyrics-body').html(html);
     $('.author-info').html("");
     $(".auto-focus").focus();
+
 
     return false;
 }
@@ -108,7 +111,10 @@ function reloadPlaylist() {
                 //var authorPicture = data[i].authorPicture || "";
 
                 html += "<div>"
-                html += name + "-" + author;
+
+                html += "<button class='songClick' data-songid=" + id + " style='background:none;border:none;color:teal;'>"
+                html += author + "-" + name;
+				html += "</button>"
 
                 html += '<button class="playSong" data-songid="' + id + '">Play</button>';
                 html += '<button class="editSong" data-songid="' + id + '">Edit</button>';
