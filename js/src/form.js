@@ -10,8 +10,7 @@ $(document).ready(function() {
     $(".playlist").on("click", ".editSong", editSong);
 
     $(".lyrics-body").on("click", ".submitSong", sendSong);
-
-
+    var playlistGlobal=null;
 });
 
 /*Funcion relativa a la edicion del formulario*/
@@ -117,6 +116,7 @@ function reloadPlaylist() {
                 html += "</div>";
             }
             $('.playlist').html(html); //innerHTML = html
+            playlistGlobal=data;
 
         },
         error: function() {
