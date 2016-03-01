@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-	/*En cuanto la página se carga, ya muestra la playlist actualizada*/
+    /*En cuanto la página se carga, ya muestra la playlist actualizada*/
     reloadPlaylist();
- 
 
- 	/*Manejadores de eventos de los botones relativos al formulario de añadir y editar cancion*/
+
+    /*Manejadores de eventos de los botones relativos al formulario de añadir y editar cancion*/
     $(".addSongButton").on("click", editForm);
     $(".playlist").on("click", ".deleteSong", deleteSong);
     $(".playlist").on("click", ".editSong", editSong);
@@ -79,7 +79,8 @@ function sendSong() {
         contentType: 'application/json',
         success: function() {
             alert("Guardado con éxito!");
-            reloadPlaylist();
+            reloadPlaylist(); //Recargamos la lista de reproduccion
+            defaultContent();  //Removemos el formulario
         },
         error: function() {
             alert("Se ha producido un error de POST");
@@ -112,7 +113,7 @@ function reloadPlaylist() {
 
                 html += "<button class='songClick' data-songid=" + id + " style='background:none;border:none;color:teal;'>"
                 html += author + "-" + name;
-				html += "</button>"
+                html += "</button>"
 
                 html += '<button class="playSong" data-songid="' + id + '">Play</button>';
                 html += '<button class="editSong" data-songid="' + id + '">Edit</button>';
@@ -142,6 +143,7 @@ function deleteSong() {
             alert("Borrado con éxito!");
             $(self).parent().remove();
             reloadPlaylist();
+            defaultContent();
         },
         error: function() {
             alert("Se ha producido un error en DELETE");
@@ -149,7 +151,8 @@ function deleteSong() {
     });
 }
 
-/*Funcion para editar una cancion, se compone de un get para obtener los datos y un PUT para reemplazarlos*/
+/*Funcion para editar una cancion, se compone de un get para obtener los datos
+y mostrarlos en el formulario y un PUT para reemplazarlos*/
 function editSong() {
     console.log("Edito la cancion");
     var self = this;
@@ -235,3 +238,5 @@ function editSong() {
     });
     return false;
 }
+
+
