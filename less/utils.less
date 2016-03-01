@@ -25,9 +25,10 @@
 }
 
 .if-is-mobile(@rules){
-    @media screen and (max-width: (@desktop-width - 1)){
+    @media screen and (max-width: (@mobile-width - 1)){
         @rules();
     }
+    
 }
 
 .if-is-desktop(@rules){

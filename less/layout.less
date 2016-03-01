@@ -11,9 +11,6 @@
 		width: @i* (100%/ @columns);
 		float: left;
 	}
-
-
-
 	.grid-generator(@columns, @prefix, (@i + 1));
 }
 
@@ -33,14 +30,16 @@
 
 .visible-on-desktop{
 	display: none;
- 
-    .if-is-desktop({display: block;})
+    .if-is-desktop({
+    	display: block;
+    })
 }
 
 .visible-on-mobile{
 	display: none;
-	
-    .if-is-mobile({display: block;}) 
+    .if-is-mobile({
+    	display: block;
+    	})  	
 }
 
 
