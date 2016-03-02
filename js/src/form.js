@@ -11,14 +11,9 @@ $(document).ready(function() {
     $(".playlist").on("click", ".songClick", updateContent);
     $(".playlist").on("click", ".playSong", playSong);
 
-<<<<<<< HEAD
     $(".lyrics-body").on("click", ".submitSong", sendSong);
     var playlistGlobal=null;
-=======
-    $(".lyrics-body").submit(".submitSong", sendSong);
 
-    var playlistGlobal = null;
->>>>>>> 7268317035dbe0c3f0e2681406c59d720214e0a5
 });
 
 /*Funcion relativa a la edicion del formulario*/
