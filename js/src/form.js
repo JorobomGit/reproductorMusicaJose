@@ -1,3 +1,6 @@
+var playlistGlobal = null;
+var actualSongGlobal = null;
+
 $(document).ready(function() {
 
     /*En cuanto la página se carga, ya muestra la playlist actualizada*/
@@ -12,8 +15,7 @@ $(document).ready(function() {
     $(".playlist").on("click", ".playSong", playSong);
 
     $(".lyrics-body").on("click", ".submitSong", sendSong);
-    var playlistGlobal=null;
-
+    
 });
 
 /*Funcion relativa a la edicion del formulario*/

@@ -45,15 +45,17 @@ function playSong() {
         success: function(data) {
             console.log("Canciones actualizadas", data);
             var html = "";
-            html += '<audio controls autoplay>';
+            //html += '<audio controls autoplay>';
             html += '<source src=' + data.songUrl + ' type="audio/ogg">';
             html += '<source src=' + data.songUrl + ' type="audio/mpeg">';
             html += 'Your browser does not support the audio element.';
-            html += '</audio>';
+            //html += '</audio>';
 
-            $('.web.footer').html(html); //innerHTML = html
+            $('audio').html(html); //innerHTML = html
 
             $('').html(html); //innerHTML = html
+
+            actualSongGlobal = data;
 
         },
         error: function() {
