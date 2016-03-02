@@ -3,7 +3,7 @@ $(document).ready(function() {
  
  	/*Manejadores de eventos de los botones relativos a la barra de reproduccion de las canciones*/
     $(".nextSong").on("click", nextSong);
-    $(".previousSong").on("click", previosusSong);
+    $(".previousSong").on("click", previousSong);
     //$(".texto")
     //$(".playlist").on("click", )
 });
