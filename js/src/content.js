@@ -1,10 +1,8 @@
 /*Funcion que actualiza el contenido al pinchar sobre una cancion*/
 
-function updateContent(params) {
+function updateContent() {
     var self = this;
     var id = $(self).data("songid"); //atributo songid
-    console.log(params);
-    console.log(params[1]);
     $.ajax({
         method: 'GET',
         url: "/api/canciones/" + id,
@@ -12,17 +10,17 @@ function updateContent(params) {
             console.log("Canciones actualizadas", data);
             var html = "";
             html += "<br>";
-            html += params[0] || data.lyrics;
+            html += data.lyrics;
             $('.lyrics-body').html(html);
             html = "";
             html += "<br>";
 
-            var picture = params[1] || data.authorPicture;
+            var picture = data.authorPicture;
 
             if (picture != undefined && picture != "")
                 html += "<img src=" + picture + " alt=Caratula no cargada>";
             html += "<br>";
-            html += params[2] || data.authorInfo;
+            html += data.authorInfo;
 
             $('.author-info').html(html);
 
@@ -34,10 +32,9 @@ function updateContent(params) {
 }
 
 /*Funcion que reproduce una cancion al clickar en el boton play*/
+/*Dado un id*/
+function playSong(id) {    
 
-function playSong() {
-    var self = this;
-    var id = $(self).data("songid"); //atributo songid
     $.ajax({
         method: 'GET', //No hace falta ponerlo, por defecto es GET
         url: "/api/canciones/" + id,
@@ -51,9 +48,13 @@ function playSong() {
             html += 'Your browser does not support the audio element.';
             html += '</audio>';
 
-            $('.web.footer').html(html); //innerHTML = html
+            $('.audioSrc').html(html); //innerHTML = html
 
             $('').html(html); //innerHTML = html
+
+            actualSongGlobal = data;
+
+            displayActualSong();
 
         },
         error: function() {

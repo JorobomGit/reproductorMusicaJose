@@ -1,19 +1,22 @@
+var playlistGlobal = null;
+var actualSongGlobal = null;
+
 $(document).ready(function() {
 
     /*En cuanto la página se carga, ya muestra la playlist actualizada*/
     reloadPlaylist();
-
 
     /*Manejadores de eventos de los botones relativos al formulario de añadir y editar cancion*/
     $(".addSongButton").on("click", editForm);
     $(".playlist").on("click", ".deleteSong", deleteSong);
     $(".playlist").on("click", ".editSong", editSong);
     $(".playlist").on("click", ".songClick", updateContent);
-    $(".playlist").on("click", ".playSong", playSong);
+    $(".playlist").on("click", ".playSong", function(){
+        var self = this;
+        playSong($(self).data("songid"));
+    });
 
     $(".lyrics-body").on("click", ".submitSong", sendSong);
-    var playlistGlobal=null;
-
 });
 
 /*Funcion relativa a la edicion del formulario*/
@@ -80,7 +83,7 @@ function sendSong() {
         success: function() {
             alert("Guardado con éxito!");
             reloadPlaylist(); //Recargamos la lista de reproduccion
-            defaultContent();  //Removemos el formulario
+            defaultContent(); //Removemos el formulario
         },
         error: function() {
             alert("Se ha producido un error de POST");
@@ -123,7 +126,7 @@ function reloadPlaylist() {
                 playlistGlobal = data;
             }
             $('.playlist').html(html); //innerHTML = html
-            playlistGlobal=data;
+            playlistGlobal = data;
 
         },
         error: function() {
@@ -137,6 +140,15 @@ function deleteSong() {
     console.log("Elimino la cancion");
     var self = this;
     var id = $(self).data("songid"); //atributo songid
+
+    //Comprobamos si hemos borrado actualSong
+    if (actualSongGlobal.id == id) {
+        //actualizamos actualsong a la siguiente
+        actualSongGlobal = playlistGlobal[getIndexActualSong()+1];
+        //reproducimos 
+        playSong(actualSongGlobal.id);
+    }
+
     $.ajax({
         method: 'DELETE',
         url: "/api/canciones/" + id,
@@ -239,5 +251,3 @@ function editSong() {
     });
     return false;
 }
-
-
