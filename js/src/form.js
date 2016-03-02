@@ -17,6 +17,7 @@ $(document).ready(function() {
     });
 
     $(".lyrics-body").on("click", ".submitSong", sendSong);
+
 });
 
 /*Funcion relativa a la edicion del formulario*/

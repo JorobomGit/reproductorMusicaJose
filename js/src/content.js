@@ -40,7 +40,7 @@ function playSong(id) {
         url: "/api/canciones/" + id,
 
         success: function(data) {
-            console.log("Canciones actualizadas", data);
+            console.log("Canciones actualizadas");
             var html = "";
 
 			html += '<audio class="sliderAudio" controls autoplay>';
