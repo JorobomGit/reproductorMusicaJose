@@ -11,7 +11,7 @@ $(document).ready(function() {
     $(".playlist").on("click", ".deleteSong", deleteSong);
     $(".playlist").on("click", ".editSong", editSong);
     $(".playlist").on("click", ".songClick", updateContent);
-    $(".playlist").on("click", ".playSong", function(){
+    $(".playlist").on("click", ".playSong", function() {
         var self = this;
         playSong($(self).data("songid"));
     });
@@ -81,7 +81,7 @@ function sendSong() {
         }),
         contentType: 'application/json',
         success: function() {
-            alert("Guardado con éxito!");
+            console.log("Guardado con éxito!");
             reloadPlaylist(); //Recargamos la lista de reproduccion
             defaultContent(); //Removemos el formulario
         },
@@ -123,7 +123,6 @@ function reloadPlaylist() {
                 html += '<button class="deleteSong" data-songid="' + id + '">X</button>';
                 html += "<br>";
                 html += "</div>";
-                playlistGlobal = data;
             }
             $('.playlist').html(html); //innerHTML = html
             playlistGlobal = data;
@@ -142,21 +141,31 @@ function deleteSong() {
     var id = $(self).data("songid"); //atributo songid
 
     //Comprobamos si hemos borrado actualSong
-    if (actualSongGlobal.id == id) {
-        //actualizamos actualsong a la siguiente
-        actualSongGlobal = playlistGlobal[getIndexActualSong()+1];
-        //reproducimos 
-        playSong(actualSongGlobal.id);
-    }
+    if (actualSongGlobal != null)
+        if (actualSongGlobal.id == id) {
+            //Comprobamos si es el ultimo elemento de la lista        
+            if (playlistGlobal.size == 1)
+                return false;
+            //Si no es el ultimo elemento, comprobamos si tiene alguno delante.
+            //Si no tiene ninguno delante
+            if (playlistGlobal[getIndexActualSong() + 1] == null)
+                actualSongGlobal = playlistGlobal[0];
+            else { //Si si que tiene elemento delante, lo obtenemos
+                actualSongGlobal = playlistGlobal[getIndexActualSong() + 1];
+                //reproducimos
+                playSong(actualSongGlobal.id);
+            }
+
+            $('.displaySong').html("");
+        }
 
     $.ajax({
         method: 'DELETE',
         url: "/api/canciones/" + id,
         success: function() {
-            alert("Borrado con éxito!");
+            console.log("Borrado con éxito!");
             $(self).parent().remove();
             reloadPlaylist();
-            defaultContent();
         },
         error: function() {
             alert("Se ha producido un error en DELETE");
@@ -235,7 +244,7 @@ function editSong() {
                         }),
                         contentType: 'application/json',
                         success: function() {
-                            alert("Actualizado con éxito!");
+                            console.log("Actualizado con éxito!");
                             reloadPlaylist();
                         },
                         error: function() {
