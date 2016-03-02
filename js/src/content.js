@@ -42,6 +42,7 @@ function playSong(id) {
         success: function(data) {
             console.log("Canciones actualizadas", data);
             var html = "";
+
             html += '<source src=' + data.songUrl + ' type="audio/ogg">';
             html += '<source src=' + data.songUrl + ' type="audio/mpeg">';
             html += 'Your browser does not support the audio element.';

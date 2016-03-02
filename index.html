@@ -16,7 +16,9 @@
         <div class="row">
             <div class="col-phone-12 col-desktop-3">
                 <a href="#">
-                    <div class="brand">Reproductor de Musica Web</div>
+                    <div class="brand">
+                        <img style="width: 90%;" src="TituloWeb.jpg">
+                    </div>
                 </a>
             </div>
             <div class="col-phone-12 col-desktop-6">
@@ -196,29 +198,55 @@
         </div>
     </div>
     <div class="web footer">
-        <div class="row">
-            <!--Texto de la cancion-->
-            <div class="col-phone-12 col-desktop-4">
-                <div class="displaySong">
-                    <marquee behavior="scroll" direction="left">
-                        Dale al play para reproducir una canción!
-                    </marquee>
+        <div class="row">      
+            <div class="visible-on-desktop"> 
+                <!--Texto de la cancion-->
+                <div class="col-desktop-3">    
+                <!-- previous button -->
+
+                    <div class="displaySong">
+                        <marquee behavior="scroll" direction="left">
+                            Dale al play para reproducir una canción!
+                        </marquee>
+                    </div>
+                <img class="previous button" src="PREVIOUS.jpg">
+               </div> 
+            </div>
+            
+            <div class="visible-on-mobile"> 
+                <!--Texto de la cancion-->
+                <div class="col-phone-12 col-desktop-2">                  
+                    <div class="displaySong">
+                        <marquee behavior="scroll" direction="left">
+                            Dale al play para reproducir una canción!
+                        </marquee>
+                    </div>
+                    </div>
+                <!--Boton anterior cancion-->
+                <div class="col-phone-1 col-desktop-1">
+                    <!-- previous button -->
+                    <img class="previous button" src="PREVIOUS.jpg">
                 </div>
             </div>
-            <!--Boton anterior cancion-->
-            <div class="col-phone-1 col-desktop-1">1</div>
+
+
+
             <!--Menu de reproduccion-->
-            <div class="col-phone-10 col-desktop-4">
-                <div class="audioSrc">
-                    <audio controls autoplay>
+            <div class="col-phone-9 col-desktop-5"> 
+                <div class="audioSrc"> 
+                    <audio class="sliderAudio" controls autoplay>
+
                     </audio>
                 </div>
             </div>
             <!--Boton siguiente cancion-->
-            <div class="col-phone-1 col-desktop-1">2</div>
+            <div class="col-phone-1 col-desktop-1">
+                <!-- next button -->
+                <img class="next button" src="NEXT.jpg">
+            </div>
             <!--Espacios finales para desktop-->
             <div class="visible-on-desktop">
-                <div class="col-desktop-2"></div>
+                <div class="col-desktop-3"></div>
             </div>
         </div>
     </div>
