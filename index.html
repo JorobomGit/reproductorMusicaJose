@@ -8,9 +8,18 @@
     <title>Reproductor Música</title>
     <link rel="icon" type="image/png" href="/img/favicon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <meta property="og:image" content="http://ianlunn.github.io/Hover/hover.jpg" />
+    <meta property="og:site_name" content="Hover.css"/>
+    <meta property="og:title" content="Hover.css - A collection of CSS3 powered hover effects" />
+    <link href="css/demo-page.css" rel="stylesheet" media="all">
+    <link href="css/hover.css" rel="stylesheet" media="all">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+
 </head>
 
 <body>
+
     <!--El header se movera con el scroll de la pagina
     contendra menu de inicio y algunos botones. Tambien un buscador-->
     <header class="web header">
@@ -18,7 +27,7 @@
             <div class="col-phone-12 col-desktop-3">
                 <a href="#">
                     <div class="brand">
-                        <img style="width: 90%;" src="img/TituloWeb.png">
+                        <!--<img style="width: 90%;" src="img/TituloWeb.png">-->
                     </div>
                 </a>
             </div>
@@ -134,28 +143,43 @@
                 <div class="col-phone-1 col-desktop-1">
                     <img class="previous button" src="img/PREVIOUS.jpg">
                 </div>
-            </div>
-            <!--Menu de reproduccion-->
-            <div class="col-phone-8 col-desktop-5">
-                <div class="audioSrc">
-                    <audio class="sliderAudio" controls autoplay></audio>
+
                 </div>
-            </div>
-            <!--Button NEXT y RANDOM song-->
-            <div class="col-phone-2 col-desktop-1">
-                <img class="next button" src="img/NEXT.jpg">
-                <img class="random button" src="img/Random.jpg">
-            </div>
-            <!--Espacios finales para desktop-->
-            <div class="visible-on-desktop">
-                <div class="col-desktop-3"></div>
-            </div>
+
+                <!--Menu de reproduccion-->
+                <div class="col-phone-8 col-desktop-5"> 
+                    <div class="audioSrc"> 
+                        <audio class="sliderAudio" controls autoplay></audio>
+                    </div>
+                </div>
+
+                <!--Button NEXT y RANDOM song-->
+                <div class="col-phone-3 col-desktop-1">
+                    <!-- -->
+                    <div id="effects" class="effects">
+                        <a href="#" class="hvr-pulse">
+                        <img class="next button" src="img/NEXT.jpg">  
+                    </a> 
+                    </div>
+                    <!-- -->
+                    
+                    <img class="random button" src="img/Random.jpg"> 
+                   
+                </div>
+
+                
+
+                <!--Espacios finales para desktop-->
+                <div class="visible-on-desktop">
+                    <div class="col-desktop-3"></div>
+                </div>
         </div>
     </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/src/form.js"></script>
     <script src="js/src/content.js"></script>
     <script src="js/src/player.js"></script>
+
 </body>
 
 </html>
