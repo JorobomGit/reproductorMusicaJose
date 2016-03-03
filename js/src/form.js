@@ -1,6 +1,7 @@
 var playlistGlobal = null;
 var actualSongGlobal = null;
 var peticion = null;
+var regex = '(http|ftp|https)://[a-z0-9\-_]+(\.[a-z0-9\-_]+)+([a-z0-9\-\.,@\?^=%&;:/~\+#]*[a-z0-9\-@\?^=%&;/~\+#])?';
 
 $.ajaxSetup({
 
@@ -10,13 +11,10 @@ $.ajaxSetup({
         $('body').removeClass('loaded');
         $('body').addClass('loader');
 
-        //$('body').addClass('loader-wrapper');
     },
     complete: function() {
-         $('body').addClass('loaded');
-        //alert("Completado!");
-        //$("body").html(html_aux);
-        //$('body').removeClass('loaded');
+        $('body').addClass('loaded');
+        $('body').removeClass('loader');
     }
 
 });
@@ -37,7 +35,7 @@ $(document).ready(function() {
         playSong($(self).data("songid"));
     });
 
-    $(".lyrics-body").on("click", ".submitSong", sendSong);
+    $(".lyrics-body").submit(".submitSong", sendSong);
 
 });
 
@@ -55,7 +53,7 @@ function editForm() {
     html += '<input type="text" name="author" id="author" placeholder="Autor" required>';
     html += '</div> <br>';
     html += "<div>";
-    html += '<input type="text" name="songUrl" id="songUrl" placeholder="URL de la canción" required>';
+    html += '<input type="text" name="songUrl" id="songUrl" placeholder="URL de la canción" pattern=' + regex + ' required>';
     html += '</div> <br>';
     html += "<div>";
     html += '<input type="text" name="lyrics" id="lyrics" placeholder="Letra (opcional)">';
@@ -224,7 +222,7 @@ function editSong() {
             html += '<input value="' + author + '" type="text" name="author" id="author" placeholder="Autor" required>';
             html += '</div> <br>';
             html += "<div>";
-            html += '<input value="' + songUrl + '" type="text" name="songUrl" id="songUrl" placeholder="URL de la canción" required>';
+            html += '<input value="' + songUrl + '" type="url" name="songUrl" id="songUrl" placeholder="URL de la canción" pattern=' + regex + ' required>';
             html += '</div> <br>';
             html += "<div>";
             html += '<input value="' + lyrics + '" type="text" name="lyrics" id="lyrics" placeholder="Letra (opcional)">';
@@ -282,4 +280,3 @@ function editSong() {
     });
     return false;
 }
-

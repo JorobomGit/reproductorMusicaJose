@@ -1,3 +1,11 @@
+$(window).keypress(function(e) {
+    if (e.keyCode === 0 || e.keyCode === 32) {
+        e.preventDefault()
+        console.log('Space pressed');
+    }
+})
+
+
 /*Funcion que actualiza el contenido al pinchar sobre una cancion*/
 
 function updateContent() {
