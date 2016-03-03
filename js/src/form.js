@@ -21,7 +21,7 @@ $.ajaxSetup({
 
 });
 
-s
+
 $(document).ready(function() {
 
     /*En cuanto la página se carga, ya muestra la playlist actualizada*/
