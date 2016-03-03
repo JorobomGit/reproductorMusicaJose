@@ -1,6 +1,27 @@
 var playlistGlobal = null;
 var actualSongGlobal = null;
+var peticion = null;
 
+$.ajaxSetup({
+
+    beforeSend: function() {
+        var html_aux = $("body").innerHTML;
+        //alert("Enviando peticion...");
+        $('body').removeClass('loaded');
+        $('body').addClass('loader');
+
+        //$('body').addClass('loader-wrapper');
+    },
+    complete: function() {
+         $('body').addClass('loaded');
+        //alert("Completado!");
+        //$("body").html(html_aux);
+        //$('body').removeClass('loaded');
+    }
+
+});
+
+s
 $(document).ready(function() {
 
     /*En cuanto la página se carga, ya muestra la playlist actualizada*/
@@ -115,7 +136,7 @@ function reloadPlaylist() {
 
                 html += "<div>"
 
-                html += "<button class='songClick' data-songid=" + id + " style='background:none;border:none;color:teal;'>"
+                html += "<button class='songClick' data-songid=" + id + " style='background:none;border:none;color:white;'>"
                 html += author + "-" + name;
                 html += "</button>"
 
