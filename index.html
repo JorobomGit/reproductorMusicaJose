@@ -203,47 +203,54 @@
                 <!--Texto de la cancion-->
                 <div class="col-desktop-3">    
                 <!-- previous button -->
-
-                    <div class="displaySong">
-                        <marquee behavior="scroll" direction="left">
-                            Dale al play para reproducir una canción!
-                        </marquee>
+                <div class="row">
+                    <div class="col-desktop-11"> 
+                        <div class="displaySong">
+                            <marquee behavior="scroll" direction="left">
+                                Dale al play para reproducir una canción!
+                            </marquee>
+                        </div>
                     </div>
-                <img class="previous button" src="PREVIOUS.jpg">
-               </div> 
+                    <div class="col-desktop-1">
+                        <img class="previous button" src="PREVIOUS.jpg">
+                    </div>
+                </div>
+               </div> <!-- div class="col-desktop-3"--> 
+
             </div>
             
             <div class="visible-on-mobile"> 
-                <!--Texto de la cancion-->
-                <div class="col-phone-12 col-desktop-2">                  
+                <div class="col-phone-12">                  
                     <div class="displaySong">
-                        <marquee behavior="scroll" direction="left">
-                            Dale al play para reproducir una canción!
+                        <marquee behavior="scroll" direction="left">Dale al play para reproducir una canción!
                         </marquee>
                     </div>
-                    </div>
-                <!--Boton anterior cancion-->
+                </div> <!--visible-on-mobile PARA TEXTO-->
+
+                <!--Button PREVIOUS song-->
                 <div class="col-phone-1 col-desktop-1">
-                    <!-- previous button -->
                     <img class="previous button" src="PREVIOUS.jpg">
                 </div>
+
             </div>
 
 
 
             <!--Menu de reproduccion-->
-            <div class="col-phone-9 col-desktop-5"> 
+            <div class="col-phone-8 col-desktop-5"> 
                 <div class="audioSrc"> 
-                    <audio class="sliderAudio" controls autoplay>
-
-                    </audio>
+                    <audio class="sliderAudio" controls autoplay></audio>
                 </div>
             </div>
-            <!--Boton siguiente cancion-->
-            <div class="col-phone-1 col-desktop-1">
-                <!-- next button -->
+
+            <!--Button NEXT y RANDOM song-->
+            <div class="col-phone-2 col-desktop-1">
                 <img class="next button" src="NEXT.jpg">
+                <img class="random button" src="Random.jpg">
             </div>
+
+            
+
             <!--Espacios finales para desktop-->
             <div class="visible-on-desktop">
                 <div class="col-desktop-3"></div>
