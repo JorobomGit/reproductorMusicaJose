@@ -33,7 +33,7 @@ function updateContent() {
 
 /*Funcion que reproduce una cancion al clickar en el boton play*/
 /*Dado un id*/
-function playSong(id) {    
+function playSong(id) {
 
     $.ajax({
         method: 'GET', //No hace falta ponerlo, por defecto es GET
@@ -43,7 +43,7 @@ function playSong(id) {
             console.log("Canciones actualizadas");
             var html = "";
 
-			html += '<audio class="sliderAudio" controls autoplay>';
+            html += '<audio class="sliderAudio" controls autoplay>';
             html += '<source src=' + data.songUrl + ' type="audio/ogg">';
             html += '<source src=' + data.songUrl + ' type="audio/mpeg">';
             html += 'Your browser does not support the audio element.';
@@ -56,6 +56,7 @@ function playSong(id) {
             actualSongGlobal = data;
 
             displayActualSong();
+            $("audio").on("ended", nextSong);
 
         },
         error: function() {
