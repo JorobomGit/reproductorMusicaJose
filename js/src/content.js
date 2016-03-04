@@ -94,7 +94,7 @@ function fuzzySearch(){
     /*Recorremos todos los objetos a ver si coincide en algun campo*/
     for(var i in playlistGlobal){        
         /*tolowercase para ignorar mayusculas*/
-        var coincidencia = JSON.stringify(playlistGlobal[i]).toLowerCase().indexOf($('#search').val()); 
+        var coincidencia = JSON.stringify(playlistGlobal[i]).toLowerCase().indexOf($('#search').val().toLowerCase()); 
         /*Convertimos a string nuestro objeto y vemos si contiene la subcadena a buscar*/
         if(coincidencia>-1){
             flag = 1;
