@@ -62,6 +62,7 @@ function getIndexActualSong() {
 
 function randomOn() {
     random = 1; /*Activamos random*/
+     //$(".random.button").on("click",".random.button"
 }
 
 function randomOff() {
