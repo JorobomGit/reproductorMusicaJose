@@ -9,17 +9,14 @@
     <link rel="icon" type="image/png" href="/img/favicon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta property="og:image" content="http://ianlunn.github.io/Hover/hover.jpg" />
-    <meta property="og:site_name" content="Hover.css"/>
+    <meta property="og:site_name" content="Hover.css" />
     <meta property="og:title" content="Hover.css - A collection of CSS3 powered hover effects" />
     <link href="css/demo-page.css" rel="stylesheet" media="all">
     <link href="css/hover.css" rel="stylesheet" media="all">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-
-
 </head>
 
 <body>
-
     <!--El header se movera con el scroll de la pagina
     contendra menu de inicio y algunos botones. Tambien un buscador-->
     <header class="web header">
@@ -31,32 +28,34 @@
                     </div>
                 </a>
             </div>
-            <div class="col-phone-12 col-desktop-6">
-                <div class="topMenu">
-                    <a href="#">
-                        <div class="col-phone-4 col-desktop-2" style="color: #4497FF;">Musica</div>
-                    </a>
-                    <a href="#">
-                        <div class="col-phone-4 col-desktop-2" style="color: #FF843B;">Generos</div>
-                    </a>
-                    <a href="#">
-                        <div class="col-phone-4 col-desktop-2" style="color: #4497FF;">Radio</div>
-                    </a>
-                    <a href="#">
-                        <div class="col-phone-4 col-desktop-2" style="color: #FF843B;">Cuenta</div>
-                    </a>
-                    <a href="#">
-                        <div class="col-phone-4 col-desktop-2" style="color: #4497FF;">Historial</div>
-                    </a>
-                    <a href="#">
-                        <div class="col-phone-4 col-desktop-2" style="color: #FF843B;">About</div>
-                    </a>
+            <div class="clickableMenu">
+                <div class="col-phone-12 col-desktop-6">
+                    <div class="topMenu">
+                        <a href="#">
+                            <div class="col-phone-4 col-desktop-2" style="color: #4497FF;">Musica</div>
+                        </a>
+                        <a href="#">
+                            <div class="col-phone-4 col-desktop-2" style="color: #FF843B;">Generos</div>
+                        </a>
+                        <a href="#">
+                            <div class="col-phone-4 col-desktop-2" style="color: #4497FF;">Radio</div>
+                        </a>
+                        <a href="#">
+                            <div class="col-phone-4 col-desktop-2" style="color: #FF843B;">Cuenta</div>
+                        </a>
+                        <a href="#">
+                            <div class="col-phone-4 col-desktop-2" style="color: #4497FF;">Historial</div>
+                        </a>
+                        <a href="#">
+                            <div class="col-phone-4 col-desktop-2" style="color: #FF843B;">About</div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-phone-12 col-desktop-3">
-                <div class="search">
-                    <input type="search" id="search">
-                    <button type="search">Buscar</button>
+                <div class="col-phone-12 col-desktop-3">
+                    <div class="search">
+                        <input type="search" id="search">
+                        <button type="text" class="searchButton" data-value="">Buscar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,11 +125,10 @@
                         </div>
                         <div class="col-desktop-1">
                             <div id="effects" class="effects">
-                                <a href="#" class="hvr-pulse">     
+                                <a href="#" class="hvr-pulse">
                                     <img class="previous button" src="img/PREVIOUS.jpg">
-                                </a> 
+                                </a>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -147,52 +145,41 @@
                 <!--Button PREVIOUS song-->
                 <div class="col-phone-1 col-desktop-1">
                     <div id="effects" class="effects">
-                        <a href="#" class="hvr-pulse">     
+                        <a href="#" class="hvr-pulse">
                             <img class="previous button" src="img/PREVIOUS.jpg">
-                        </a> 
-                    </div>
-                    
-                </div>
-
-                </div>
-
-                <!--Menu de reproduccion-->
-                <div class="col-phone-8 col-desktop-5"> 
-                    <div class="audioSrc"> 
-                        <audio class="sliderAudio" controls autoplay></audio>
+                        </a>
                     </div>
                 </div>
-
-                <!--Button NEXT y RANDOM song-->
-                <div class="col-phone-3 col-desktop-1">
-                 
-                    <div id="effects" class="effects">
-                        <a href="#" class="hvr-pulse">
-                            <img class="next button" src="img/NEXT.jpg"> 
-                        </a> 
-                    </div>
-
-                    <div id="effects" class="effects">
-                        <a href="#" class="hvr-pulse">
-                            <img class="random button" src="img/Random.jpg"> 
-                        </a> 
-                    </div>
-                   
+            </div>
+            <!--Menu de reproduccion-->
+            <div class="col-phone-8 col-desktop-5">
+                <div class="audioSrc">
+                    <audio class="sliderAudio" controls autoplay></audio>
                 </div>
-
-                
-
-                <!--Espacios finales para desktop-->
-                <div class="visible-on-desktop">
-                    <div class="col-desktop-3"></div>
+            </div>
+            <!--Button NEXT y RANDOM song-->
+            <div class="col-phone-3 col-desktop-1">
+                <div id="effects" class="effects">
+                    <a href="#" class="hvr-pulse">
+                        <img class="next button" src="img/NEXT.jpg">
+                    </a>
                 </div>
+                <div id="effects" class="effects">
+                    <a href="#" class="hvr-pulse">
+                        <img class="random button" src="img/Random.jpg">
+                    </a>
+                </div>
+            </div>
+            <!--Espacios finales para desktop-->
+            <div class="visible-on-desktop">
+                <div class="col-desktop-3"></div>
+            </div>
         </div>
     </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/src/form.js"></script>
     <script src="js/src/content.js"></script>
     <script src="js/src/player.js"></script>
-
 </body>
 
 </html>

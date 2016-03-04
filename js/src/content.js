@@ -1,6 +1,6 @@
 $(window).keypress(function(e) {
     if (e.keyCode === 0 || e.keyCode === 32) {
-        e.preventDefault()
+        //e.preventDefault()
         console.log('Space pressed');
     }
 })
@@ -81,4 +81,34 @@ function defaultContent() {
 
     $('.lyrics-body').html(html);
     $('.author-info').html(html);
+}
+
+function fuzzySearch(){
+    console.log("Resultados de busqueda:");
+    defaultContent();
+    var resultados = null;
+    var flag = 0; /*Bandera para controlar si ha encontrado al menos una coincidencia*/
+    var html = "<br><h2>Resultados de busqueda:</h2>";
+    html += '<br><br><br><br>';
+
+    /*Recorremos todos los objetos a ver si coincide en algun campo*/
+    for(var i in playlistGlobal){        
+        /*tolowercase para ignorar mayusculas*/
+        var coincidencia = JSON.stringify(playlistGlobal[i]).toLowerCase().indexOf($('#search').val()); 
+        /*Convertimos a string nuestro objeto y vemos si contiene la subcadena a buscar*/
+        if(coincidencia>-1){
+            flag = 1;
+            /*Encuentra coincidencias*/
+            html += '<b>Cancion:</b> ' + playlistGlobal[i].name;
+            html += '<br>';
+            html += '<b>Coincidencia:</b><br>...';
+            //Imprimimos los 150 caracteres siguientes
+            for(var j=coincidencia; j<(coincidencia+150) && j<JSON.stringify(playlistGlobal[i]).length;j++)
+                html += JSON.stringify(playlistGlobal[i])[j];
+            html += '...<br><br><br>';
+        }
+    }
+    if(flag == 0)
+        html += 'Sin coincidencias';
+    $('.lyrics-body').html(html);
 }

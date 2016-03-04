@@ -1,27 +1,31 @@
-.web.header{
-	width: 100%;
-	background-image: url("img/header.jpg");
-	background-repeat: no-repeat;
-	color: white;
-	text-align: center;	
-	margin-top: -145px;
-	.brand{
-		font-size: 32px;
-	}
-	.topMenu{
-		font-size: 24px;
-		a{
-			color:white;
-		}
-	}
-		.if-is-desktop({
-			background-size: 100%;
-			margin-top: -50px;
-		});
-	
+.web.header {
+    width: 100%;
+    background-image: url("img/header.jpg");
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    margin-top: -145px;
+    .brand {
+        font-size: 32px;
+    }
+    .topMenu {
+        font-size: 28px;
+        a {
+            color: white;
+        }
+    }
+
+    .if-is-desktop( {
+        background-size: 100%;
+        margin-top: -50px;
+        .clickableMenu {
+            padding-top: 160px;
+        }
+    }
+    );
 }
 
-.web.footer{
-	position: fixed;
-	width: 100%;
+.web.footer {
+    position: fixed;
+    width: 100%;
 }

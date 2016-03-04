@@ -37,6 +37,8 @@ $(document).ready(function() {
 
     $(".lyrics-body").submit(".submitSong", sendSong);
 
+    $(".web.header").on("click", ".searchButton", fuzzySearch);
+
 });
 
 /*Funcion relativa a la edicion del formulario*/
